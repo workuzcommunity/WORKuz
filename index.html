@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORKuz - Ish va Xodim topish platformasi</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f1f3f6; margin: 0; padding: 10px; display: flex; justify-content: center; }
+        .app-container { background: white; width: 100%; max-width: 380px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); overflow: hidden; padding-bottom: 20px; min-height: 500px; }
+        .welcome-box { background: linear-gradient(135deg, #007bff, #0056b3); color: white; padding: 30px 20px; text-align: center; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; }
+        .logo { font-size: 28px; font-weight: 800; letter-spacing: 1px; margin-bottom: 10px; }
+        .logo span { color: #ffc107; }
+        .welcome-box h1 { font-size: 18px; margin: 0 0 8px 0; font-weight: 600; }
+        .welcome-box p { font-size: 13px; margin: 0; opacity: 0.8; }
+        .search-bar { display: flex; margin: -18px 20px 20px 20px; background: white; padding: 6px; border-radius: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .search-bar input { flex: 1; border: none; padding: 0 15px; font-size: 14px; outline: none; }
+        .search-bar button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 20px; font-weight: bold; cursor: pointer; }
+        .categories-wrapper h2 { font-size: 16px; color: #333; margin: 0 20px 15px 20px; text-align: left; }
+        .grid-categories { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 0 20px; }
+        .cate-item { background: #f8f9fa; border: 1px solid #eee; border-radius: 12px; padding: 15px; text-align: center; cursor: pointer; transition: transform 0.2s; }
+        .cate-item:active { transform: scale(0.95); }
+        .cate-item .icon { font-size: 24px; margin-bottom: 8px; }
+        .cate-item span { font-size: 13px; font-weight: 600; color: #495057; display: block; }
+        .jobs-header { background: #007bff; color: white; padding: 15px; display: flex; align-items: center; gap: 15px; }
+        .back-btn { background: rgba(255,255,255,0.2); border: none; color: white; padding: 8px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        .jobs-header h2 { font-size: 18px; margin: 0; }
+        .jobs-list { padding: 15px; display: flex; flex-direction: column; gap: 15px; }
+        .job-card { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 12px; padding: 15px; text-align: left; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        .job-card h3 { margin: 0 0 5px 0; font-size: 16px; color: #333; }
+        .job-card .company { font-weight: 600; color: #007bff; font-size: 14px; margin-bottom: 5px; }
+        .job-card .salary { font-weight: bold; color: #28a745; font-size: 15px; margin-bottom: 10px; }
+        .job-card .details { font-size: 13px; color: #666; margin-bottom: 15px; line-height: 1.4; }
+        .call-btn { display: block; text-align: center; background: #28a745; color: white; padding: 10px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 14px; }
+        .no-jobs { color: #999; text-align: center; padding: 40px 20px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <div id="home-page">
+            <header class="welcome-box">
+                <div class="logo">WORK<span>uz</span></div>
+                <h1>O'zbekistonda o'z ishingizni toping!</h1>
+                <p>Tezkor, ishonchli va qulay ish platformasi</p>
+            </header>
+            <div class="search-bar">
+                <input type="text" placeholder="Kasb yoki viloyatni yozing...">
+                <button onclick="alert('Qidiruv tizimi tez orada ishga tushadi!')">Izlash</button>
+            </div>
+            <main class="categories-wrapper">
+                <h2>Ish sohalari</h2>
+                <div class="grid-categories">
+                    <div class="cate-item" onclick="showCategory('it', '💻 IT & Kompyuter')"><div class="icon">💻</div><span>IT & Kompyuter</span></div>
+                    <div class="cate-item" onclick="showCategory('construction', '🏗️ Qurilish')"><div class="icon">🏗️</div><span>Qurilish</span></div>
+                    <div class="cate-item" onclick="showCategory('medical', '🩺 Tibbiyot')"><div class="icon">🩺</div><span>Tibbiyot</span></div>
+                    <div class="cate-item" onclick="showCategory('education', '📚 Ta\'lim')"><div class="icon">📚</div><span>Ta'lim</span></div>
+                    <div class="cate-item" onclick="showCategory('logistics', '🚖 Logistika')"><div class="icon">🚖</div><span>Logistika</span></div>
+                    <div class="cate-item" onclick="showCategory('restaurant', '👨‍🍳 Restoran')"><div class="icon">👨‍🍳</div><span>Restoran</span></div>
+                    <div class="cate-item" onclick="showCategory('sales', '🛍️ Savdo')"><div class="icon">🛍️</div><span>Savdo</span></div>
+                    <div class="cate-item" onclick="showCategory('beauty', '✂️ Go\'zallik')"><div class="icon">✂️</div><span>Go'zallik</span></div>
+                </div>
+            </main>
+        </div>
+
+        <div id="jobs-page" style="display: none;">
+            <header class="jobs-header">
+                <button class="back-btn" onclick="showHomePage()">⬅ Orqaga</button>
+                <h2 id="category-title">Ish o'rinlari</h2>
+            </header>
+            <div id="jobs-list-container" class="jobs-list"></div>
+        </div>
+    </div>
+
+    <script>
+        const jobsData = {
+            it: [
+                { title: "Frontend Dasturchi (React)", company: "WORKuz IT Solutions", salary: "6,000,000 so'm", details: "Talablar: HTML, CSS, JavaScript va ReactJS bo'yicha kamida 1 yillik tajriba. Ish vaqti: 09:00 - 18:00.", phone: "+998901234567" },
+                { title: "IT Administrator", company: "Premium Texnika", salary: "4,500,000 so'm", details: "Kompyuter va tarmoqlarni sozlash, nosozliklarni bartaraf etish. Ish turi: Ofisda.", phone: "+998937654321" }
+            ],
+            construction: [
+                { title: "Malakali G'isht Quyuvchi (Usta)", company: "Yuksak Qurilish MCHJ", salary: "8,000,000 so'm", details: "Yangi ko'p qavatli uylarda g'isht urish ishlari. Tushlik va turar joy korxona hisobidan.", phone: "+998991112233" }
+            ],
+            restaurant: [
+                { title: "Milliylik Oshpazi", company: "Chorsu Milliy Taomlari", salary: "5,000,000 so'm", details: "Palov va somsa tayyorlashni mukammal bilishi kerak. Ish vaqti kelishiladi.", phone: "+998944445566" }
+            ]
+        };
+
+        function showCategory(categoryKey, categoryName) {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('jobs-page').style.display = 'block';
+            document.getElementById('category-title').innerText = categoryName;
+            const container = document.getElementById('jobs-list-container');
+            container.innerHTML = '';
+            const jobs = jobsData[categoryKey];
+            if (jobs && jobs.length > 0) {
+                jobs.forEach(job => {
+                    const card = document.createElement('div');
+                    card.className = 'job-card';
+                    card.innerHTML = `
+                        <h3>${job.title}</h3>
+                        <div class="company">${job.company}</div>
+                        <div class="salary">💰 Maosh: ${job.salary}</div>
+                        <div class="details">${job.details}</div>
+                        <a href="tel:${job.phone}" class="call-btn">📞 Aloqaga chiqish</a>
+                    `;
+                    container.appendChild(card);
+                });
+            } else {
+                container.innerHTML = `<div class="no-jobs">Hozircha bu sohada bo'sh ish o'rinlari mavjud emas. Tez orada qo'shiladi!</div>`;
+            }
+        }
+
+        function showHomePage() {
+            document.getElementById('jobs-page').style.display = 'none';
+            document.getElementById('home-page').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
