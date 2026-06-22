@@ -7,11 +7,18 @@
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f1f3f6; margin: 0; padding: 10px; display: flex; justify-content: center; }
         .app-container { background: white; width: 100%; max-width: 380px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); overflow: hidden; padding-bottom: 20px; min-height: 500px; }
-        .welcome-box { background: linear-gradient(135deg, #007bff, #0056b3); color: white; padding: 30px 20px; text-align: center; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; }
+        
+        /* Yuqori qism yangilandi */
+        .welcome-box { background: linear-gradient(135deg, #007bff, #0056b3); color: white; padding: 25px 20px 35px 20px; text-align: center; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; position: relative; }
         .logo { font-size: 28px; font-weight: 800; letter-spacing: 1px; margin-bottom: 10px; }
         .logo span { color: #ffc107; }
         .welcome-box h1 { font-size: 18px; margin: 0 0 8px 0; font-weight: 600; }
         .welcome-box p { font-size: 13px; margin: 0; opacity: 0.8; }
+        
+        /* YANGI: Telegramga olib o'tuvchi E'lon berish tugmasi */
+        .add-post-btn { display: inline-block; background: #28a745; color: white; text-decoration: none; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: bold; margin-top: 12px; box-shadow: 0 4px 10px rgba(40,167,69,0.3); }
+        .add-post-btn:active { transform: scale(0.95); }
+
         .search-bar { display: flex; margin: -18px 20px 20px 20px; background: white; padding: 6px; border-radius: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .search-bar input { flex: 1; border: none; padding: 0 15px; font-size: 14px; outline: none; }
         .search-bar button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 20px; font-weight: bold; cursor: pointer; }
@@ -42,6 +49,9 @@
                 <div class="logo">WORK<span>uz</span></div>
                 <h1>O'zbekistonda o'z ishingizni toping!</h1>
                 <p>Tezkor, ishonchli va qulay ish platformasi</p>
+                
+                <!--therelshakx-->
+                <a href="https://t.me" target="_blank" class="add-post-btn">➕ E'lon joylash (Bepul)</a>
             </header>
             <div class="search-bar">
                 <input type="text" placeholder="Kasb yoki viloyatni yozing...">
@@ -106,7 +116,7 @@
                     container.appendChild(card);
                 });
             } else {
-                container.innerHTML = `<div class="no-jobs">Hozircha bu sohada bo'sh ish o'rinlari mavjud emas. Tez orada qo'shiladi!</div>`;
+                container.innerHTML = `<div class="no-jobs">Hozircha bu sohada bo'sh ish o'rinlari mavlud emas. Tez orada qo'shiladi!</div>`;
             }
         }
 
@@ -117,3 +127,6 @@
     </script>
 </body>
 </html>
+
+       
+    
